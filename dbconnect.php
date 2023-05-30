@@ -3,5 +3,5 @@ return [
   'host' => 'localhost',
   'user' => 'root',
   'pass' => '',
-  'db' => 'test'
+  'db' => 'DataCenter'
 ];
