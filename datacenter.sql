@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Maj 30, 2023 at 02:12 PM
+-- Generation Time: Cze 04, 2023 at 03:30 PM
 -- Wersja serwera: 10.4.28-MariaDB
 -- Wersja PHP: 8.2.4
 
@@ -29,7 +29,7 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `workers` (
   `id` int(11) NOT NULL,
-  `name` text CHARACTER SET utf8 COLLATE utf8_polish_ci NOT NULL,
+  `name` text NOT NULL,
   `surname` text CHARACTER SET utf8 COLLATE utf8_polish_ci NOT NULL,
   `dob` text CHARACTER SET utf8 COLLATE utf8_polish_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
@@ -39,7 +39,8 @@ CREATE TABLE `workers` (
 --
 
 INSERT INTO `workers` (`id`, `name`, `surname`, `dob`) VALUES
-(1, 'Jan', 'Gorczyński', '15-06-2003');
+(1, 'Jan', 'Gorczyński', '15-06-2003'),
+(2, 'test', 'test', '000000000');
 
 --
 -- Indeksy dla zrzutów tabel
@@ -59,7 +60,7 @@ ALTER TABLE `workers`
 -- AUTO_INCREMENT for table `workers`
 --
 ALTER TABLE `workers`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
