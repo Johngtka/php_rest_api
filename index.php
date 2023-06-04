@@ -35,7 +35,13 @@ try {
     }else{
       echo json_encode("xd");
     }
-  }
+    if(isset($requestData['del']) && $requestData['del']===true){
+      $data = [
+        'name'=> $requestData['name'] 
+      ];
+      $users.deleteWorker($data);
+    };
+    }
 } catch (PDOException $error) {
   echo http_response_code(500);
 }

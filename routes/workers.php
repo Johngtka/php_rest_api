@@ -24,9 +24,12 @@ function searchWorkers($data){
     echo json_encode($result);
 }
 
+
 function deleteWorker($data){
     global $db;
     $query = $db->prepare("DELETE FROM workers WHERE name=:imie");
     $query->bindParam(':imie', $data['name']);
     $query->execute();
+    $query2 = $db->prepare("ALTER TABLE workers AUTO_INCREMENT=1");
+    $query2->execute();
 }
