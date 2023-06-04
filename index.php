@@ -17,32 +17,35 @@ try {
   if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $requestData = json_decode(file_get_contents('php://input'), true);
+
     // new employee
     if (isset($requestData['name']) && isset($requestData['surName']) && isset($requestData['dob'])) {
-      $data = [
-        'name' => $requestData['name'],
-        'surName' => $requestData['surName'],
-        'dob' => $requestData['dob']
-      ];
-      $users.postWorker($data);
+        $data = [
+          'name' => $requestData['name'],
+          'surName' => $requestData['surName'],
+          'dob' => $requestData['dob']
+        ];
+        $users.postWorker($data);
     }
+    
     // search employee
     if(isset($requestData['name'])){
-    $data = [
-      'name' => $requestData['name']
-    ];
-    $users.searchWorkers($data);
+        $data = [
+          'name' => $requestData['name']
+        ];
+        $users.searchWorkers($data);
     }else{
-      echo json_encode("xd");
+        echo json_encode("xd");
     }
+
     if(isset($requestData['del']) && $requestData['del']===true){
-      $data = [
-        'name'=> $requestData['name'] 
-      ];
-      $users.deleteWorker($data);
+        $data = [
+          'name'=> $requestData['name'] 
+        ];
+        $users.deleteWorker($data);
     };
     }
 } catch (PDOException $error) {
-  echo http_response_code(500);
+   echo http_response_code(500);
 }
 ?>

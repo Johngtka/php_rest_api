@@ -32,4 +32,8 @@ function deleteWorker($data){
     $query->execute();
     $query2 = $db->prepare("ALTER TABLE workers AUTO_INCREMENT=1");
     $query2->execute();
+    $query3 = $db->prepare("ALTER TABLE workers DROP id");
+    $query3->execute();
+    $addid = $db->prepare("ALTER TABLE workers ADD `id` INT NOT NULL AUTO_INCREMENT FIRST, ADD PRIMARY KEY (`id`)");
+    $addid->execute();
 }
