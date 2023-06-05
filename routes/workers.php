@@ -31,8 +31,8 @@
         $query = $db->prepare("DELETE FROM workers WHERE name=:imie");
         $query->bindParam(':imie', $data['name']);
         $query->execute();
-        $query3 = $db->prepare("ALTER TABLE workers DROP id");
-        $query3->execute();
-        $addid = $db->prepare("ALTER TABLE workers ADD `id` INT NOT NULL AUTO_INCREMENT FIRST, ADD PRIMARY KEY (`id`)");
-        $addid->execute();
+        $dropId = $db->prepare("ALTER TABLE workers DROP id");
+        $dropId->execute();
+        $addId = $db->prepare("ALTER TABLE workers ADD `id` INT NOT NULL AUTO_INCREMENT FIRST, ADD PRIMARY KEY (`id`)");
+        $addId->execute();
     }
