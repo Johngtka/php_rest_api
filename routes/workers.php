@@ -20,10 +20,18 @@
     function searchWorkers($data){
         global $db;
         $query = $db->prepare("SELECT name, surName FROM workers WHERE name=:imie");
-        $query->bindParam(':imie',  $data['name']);
+        $query->bindParam(':imie', $data['name']);
         $query->execute();
         $result = $query->fetchAll();
         echo json_encode($result);
+    }
+
+    function editWorker($data){
+        global $db;
+        $query = $db->prepare("UPDATE workers SET name = :name, surName = :surName WHERE id = :workerId");
+        $query->bindParam(':imie', $data['name']);
+        $query->bindParam(':surName', $data['surName']);
+        $query->bindParam(':workerId', $data['workerId']);
     }
 
     function deleteWorker($data){
