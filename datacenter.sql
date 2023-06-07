@@ -29,10 +29,10 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `workers` (
   `id` int(11) NOT NULL,
-  `name` text NOT NULL,
+  `name` text CHARACTER SET utf8 COLLATE utf8_polish_ci NOT NULL,
   `surname` text CHARACTER SET utf8 COLLATE utf8_polish_ci NOT NULL,
   `dob` text CHARACTER SET utf8 COLLATE utf8_polish_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci;
 
 --
 -- Dumping data for table `workers`

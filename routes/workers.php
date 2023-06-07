@@ -28,10 +28,11 @@
 
     function editWorker($data){
         global $db;
-        $query = $db->prepare("UPDATE workers SET name = :name, surName = :surName WHERE id = :workerId");
+        $query = $db->prepare("UPDATE workers SET name = :imie, surName = :surName WHERE id = :workerId");
         $query->bindParam(':imie', $data['name']);
         $query->bindParam(':surName', $data['surName']);
         $query->bindParam(':workerId', $data['workerId']);
+        $query->execute();
     }
 
     function deleteWorker($data){
