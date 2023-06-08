@@ -15,11 +15,13 @@
         $query->bindParam(':surName', $data['surName']);
         $query->bindParam(':dob', $data['dob']);
         $query->execute();
+        $result = $query->fetchAll();
+        echo json_encode($result);
     }
 
     function searchWorkers($data){
         global $db;
-        $query = $db->prepare("SELECT name, surName FROM workers WHERE name=:imie");
+        $query = $db->prepare("SELECT name, surname FROM workers WHERE name = :imie");
         $query->bindParam(':imie', $data['name']);
         $query->execute();
         $result = $query->fetchAll();
@@ -28,17 +30,19 @@
 
     function editWorker($data){
         global $db;
-        $query = $db->prepare("UPDATE workers SET name = :imie, surName = :surName WHERE id = :workerId");
+        $query = $db->prepare("UPDATE workers SET name = :imie, surname = :surName WHERE id = :workerId");
         $query->bindParam(':imie', $data['name']);
         $query->bindParam(':surName', $data['surName']);
         $query->bindParam(':workerId', $data['workerId']);
         $query->execute();
+        $result = $query->fetchAll();
+        echo json_encode($result);
     }
 
     function deleteWorker($data){
         global $db;
-        $query = $db->prepare("DELETE FROM workers WHERE name=:imie");
-        $query->bindParam(':imie', $data['name']);
+        $query = $db->prepare("DELETE FROM workers WHERE id = :numer");
+        $query->bindParam(':numer', $data['id']);
         $query->execute();
         $dropId = $db->prepare("ALTER TABLE workers DROP id");
         $dropId->execute();

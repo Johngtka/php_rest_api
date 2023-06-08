@@ -44,12 +44,12 @@
                 if(isset($requestData['del']) && $requestData['del'] != false){
 
                     $data = [
-                        'name'=> $requestData['name'] 
+                        'id'=> $requestData['workerId'] 
                     ];
                     
                     $users.deleteWorker($data);
                     
-                    echo json_encode($requestData);
+                    // echo json_encode($requestData);
                 } else if ($requestData===[]){
                     echo "xd";
                 }
@@ -62,7 +62,7 @@
                         'workerId' => $requestData['workerId']
                     ];
                     $users.editWorker($data);
-                    echo json_encode($requestData);
+                    // echo json_encode($requestData);
                 }
             }
     }

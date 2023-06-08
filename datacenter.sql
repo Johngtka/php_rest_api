@@ -39,8 +39,8 @@ CREATE TABLE `workers` (
 --
 
 INSERT INTO `workers` (`id`, `name`, `surname`, `dob`) VALUES
-(1, 'Jan', 'Gorczyński', '15-06-2003'),
-(2, 'test', 'test', '000000000');
+(1, 'Jan', 'Gorczyński', '2003-06-15'),
+(2, 'test', 'test', '0000-00-00');
 
 --
 -- Indeksy dla zrzutów tabel
