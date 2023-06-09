@@ -1,7 +1,7 @@
 <?php
-return [
-  'host' => 'localhost',
-  'user' => 'root',
-  'pass' => '',
-  'db' => 'test'
-];
+  return [
+    'host' => 'localhost',
+    'user' => 'root',
+    'pass' => '',
+    'db' => 'DataCenter'
+  ];
