@@ -35,9 +35,9 @@
         $query->bindParam(':nazwisko', $data['surName']);
         $query->bindParam(':workerId', $data['workerId']);
         $query->execute();
-        // $result = $query->fetchAll();
-        // echo json_encode($result);
-    }
+        $result = $query->fetchAll();
+        echo json_encode($result);
+    }   
 
     function deleteWorker($data){
         global $db;
