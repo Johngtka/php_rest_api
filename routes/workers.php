@@ -30,13 +30,13 @@
 
     function editWorker($data){
         global $db;
-        $query = $db->prepare("UPDATE workers SET name = :imie, surname = :surName WHERE id = :workerId");
+        $query = $db->prepare("UPDATE workers SET name = :imie, surname = :nazwisko WHERE id = :workerId");
         $query->bindParam(':imie', $data['name']);
-        $query->bindParam(':surName', $data['surName']);
+        $query->bindParam(':nazwisko', $data['surName']);
         $query->bindParam(':workerId', $data['workerId']);
         $query->execute();
-        $result = $query->fetchAll();
-        echo json_encode($result);
+        // $result = $query->fetchAll();
+        // echo json_encode($result);
     }
 
     function deleteWorker($data){

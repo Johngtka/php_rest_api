@@ -57,9 +57,9 @@
                 // edit employee
                 if(isset($requestData['edit']) && $requestData['edit'] != false){
                     $data =[
-                        'name' => $requestData['name'],
-                        'surName' => $requestData['surName'],
-                        'workerId' => $requestData['workerId']
+                        'name' => $requestData['newName'],
+                        'surName' => $requestData['newSurName'],
+                        'workerId' => $requestData['Id']
                     ];
                     $users.editWorker($data);
                     // echo json_encode($requestData);
